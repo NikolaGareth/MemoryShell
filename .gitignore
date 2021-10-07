@@ -3,5 +3,5 @@ compiled output
 /target
 
 IDEs and editors
-.idea
-.git
+/.idea
+/.git
