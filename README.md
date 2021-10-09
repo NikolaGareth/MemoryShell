@@ -6,6 +6,11 @@
 
 感谢这位大佬！
 
-# 0x01 addfilter型内存马
+# 0x01 Filter型内存马
 
 ![](https://github.com/NikolaGareth/MemoryShell/blob/master/img/addfilter.png)
+
+# 0x02 Listener型内存马
+
+![](https://github.com/NikolaGareth/MemoryShell/blob/master/img/listener.png)
+
