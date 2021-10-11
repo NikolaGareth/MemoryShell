@@ -19,7 +19,11 @@ https://github.com/birdhan/Memory
 
 ![](https://github.com/NikolaGareth/MemoryShell/blob/master/img/addlistener.png)
 
-## 0x03 更新三个linux可用的内存马
+## 0x03 Servlet型内存马
+
+![](https://github.com/NikolaGareth/MemoryShell/blob/master/img/addservlet.png)
+
+## 0x04 更新三个linux可用的内存马
 ### 1.filter类型
 
 + 将filter.jsp文件放到tomcat根目录下，通过浏览器访问，可创建内存马。
